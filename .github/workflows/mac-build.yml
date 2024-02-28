@@ -1,0 +1,18 @@
+name: Schildichat MacOS build
+
+jobs:
+  build:
+    runs-on: macos-12
+     steps:
+      - uses: actions/checkout@v2
+      - name: Install brew
+        run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      - name: Install packages
+        run: brew install tcl rust node gpg vim curl git yarn git make gcc
+      - name: Create release build
+        run: make macos-release
+      - name: upload macos artifact
+      uses: actions/upload-artifact@v1
+      with:
+        name: uploads
+        path: macos.dmg    

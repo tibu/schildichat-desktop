@@ -1,9 +1,12 @@
+on:
+  workflow_dispatch:
+
 name: Schildichat MacOS build
 
 jobs:
   build:
-    runs-on: macos-12
-     steps:
+    runs-on: macos-latest
+    steps:
       - uses: actions/checkout@v2
       - name: Install brew
         run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -12,7 +15,7 @@ jobs:
       - name: Create release build
         run: make macos-release
       - name: upload macos artifact
-      uses: actions/upload-artifact@v1
-      with:
-        name: uploads
-        path: macos.dmg    
+        uses: actions/upload-artifact@v4
+        with:
+          name: uploads
+          path: macos.dmg    

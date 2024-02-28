@@ -12,7 +12,7 @@ jobs:
       - name: Install brew
         run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
       - name: Install packages
-        run: brew install tcl rust node gpg vim curl git yarn git make gcc
+        run: brew install tcl-tk rust node gpg vim curl git yarn git make gcc
       - name: Create release build
         run: make macos-release
       - name: upload macos artifact

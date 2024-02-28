@@ -1,7 +1,8 @@
+name: Schildichat MacOS build
+
 on:
   workflow_dispatch:
-
-name: Schildichat MacOS build
+  push:
 
 jobs:
   build:
